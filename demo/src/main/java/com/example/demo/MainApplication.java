@@ -13,7 +13,13 @@ public class MainApplication {
     }
 
     @GetMapping("/greet")
-    public String greet() {
-        return "Hello there";
+    public Dog greet() {
+        Dog dogTim = new Dog(new Animal("dog", 4), "Tim");
+
+        return dogTim;
     }
+
+    record Animal(String animalType, int numberOfLegs) {}
+
+    record Dog(Animal race, String name) {}
 }
