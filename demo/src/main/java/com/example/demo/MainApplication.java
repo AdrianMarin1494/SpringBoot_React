@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -18,8 +19,11 @@ public class MainApplication {
     public List<Dog> greet() {
         Dog dogTim = new Dog(new Animal("dog", 4), "Tim");
         Dog dogKim = new Dog(new Animal("dog", 4), "Kim");
+        List<Dog> dogs = new ArrayList<>();
+        dogs.add(dogTim);
+        dogs.add(1, dogKim);
 
-        return List.of(dogTim, dogKim);
+        return dogs;
     }
 
     record Animal(String animalType, int numberOfLegs) {}
