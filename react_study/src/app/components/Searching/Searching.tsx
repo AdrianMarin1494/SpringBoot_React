@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, {useState} from "react";
 
 const javaScriptMethods: Array<String> = [
   "There are many different search methods on arrays in JavaScript:",
@@ -27,11 +27,13 @@ const includesDetails: {definition: String, syntax: Array<String>, result: Strin
 }
 
 const Searching = () => {
+  const [isCompleted, setIsCompleted] = useState(false);
   const indexOfDetailsSyntaxListItems = indexOfDetails["syntax"].map((item: String, idx: number) => <li key={idx}>{item}</li> );
   const includesDetailsSyntaxListItems = indexOfDetails["syntax"].map((item: String, idx: number) => <li key={idx}>{item}</li> );
   
   return (
     <div>
+        <input type="checkbox" onChange={(e) => setIsCompleted(e.target.checked)}/><span>Completed?</span>
         <h2>Searching</h2>
         <div>
           <h3>{indexOfDetails["definition"]}</h3>

@@ -1,6 +1,6 @@
 "useClient";
 
-import React from "react";
+import React, {useState} from "react";
 
 const linearSearchDefinition: String = "Given an array, the simplest way to search for an value is to look at every element in the array and check if it's the value we want";
 const linearSearchExample: Array<String> = [
@@ -19,6 +19,8 @@ const linearSearchBigO: Array<String> = [
 
 
 const LinearSearch = () => {
+  const [isCompleted, setIsCompleted] = useState(false);
+
   const title: String = "Linear Search";
   const linearSearchExampleListItems = linearSearchExample.map((item: String, idx: number) => <li key={idx}>{item}</li>)
   const linearSearchBigOListItems = linearSearchBigO.map((item: String, idx: number) => <li key={idx}>{item}</li>);
@@ -27,6 +29,7 @@ const LinearSearch = () => {
     <div>
       <h2>{title}</h2>
       <div>
+        <input type="checkbox" onChange={(e) => setIsCompleted(e.target.checked)} /><span>Completed?</span>
         <h3>Linear Search definition</h3>
         <p>{linearSearchDefinition}</p>
       </div>

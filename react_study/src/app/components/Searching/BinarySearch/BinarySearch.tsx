@@ -1,6 +1,6 @@
 "useClient";
 
-import React from "react";
+import React, {useState} from "react";
 
 const binarySearchDefinition: Array<String> = [
   "Binary search is much faster form of search",
@@ -73,6 +73,7 @@ const binarySearchFunction: {functionItems: Array<String>, functionResult: Array
 }
 
 const BinarySearch = () => {
+  const [isCompleted, setIsCompleted] = useState(false);
   const title: String = "Binary Search";
   const binarySearchDefinitionListItems = binarySearchDefinition.map((item: String, idx: number) => <li key={idx}>{item}</li> );
   const binarySearchExampleListItems = binarySearchExample.map((item: String, idx: number) => <li key={idx}>{item}</li>)
@@ -84,6 +85,7 @@ const BinarySearch = () => {
     <div>
       <h2>{title}</h2>
       <div>
+        <input type="checkbox" onChange={(e) => setIsCompleted(e.target.checked)} /><span>Completed?</span>
         <h3>Binary Search Definition</h3>
         <ul>{binarySearchDefinitionListItems}</ul>
       </div>
